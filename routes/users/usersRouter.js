@@ -41,6 +41,7 @@ router.put("/update-user-by-id/:id", function (req, res) {
     }
   );
 });
+
 router.delete("/delete-user-by-id/:id", function (req, res) {
   userController.deleteUserByID(req.params.id, function (err, deletedPayload) {
     if (err) {

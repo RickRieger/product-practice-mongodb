@@ -35,7 +35,7 @@ router.put("/update-product-by-id/:id", function (req, res) {
     req.body,
     function (err, updatedPayload) {
       if (err) {
-        res.status(500).json({ message: "Error", error: err });
+        res.status(500).json({ message: "Error-dude", error: err });
       } else {
         res.json({ message: "success", data: updatedPayload });
       }
