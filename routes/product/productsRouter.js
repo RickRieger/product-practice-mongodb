@@ -11,12 +11,28 @@ router.get("/", function (req, res, next) {
 });
 router.get("/get-all-products", function (req, res) {
   productController.getAllProducts(function (err, payload) {
+    console.log('it works in router');
     if (err) {
       res.status(500).json({ message: "Error", error: err });
     } else {
       res.json({ message: "success", data: payload });
     }
   });
+});
+
+router.get("/get-product-by-id/:id", function (req, res) {
+  console.log(req.params.id)
+  productController.getProductByID(
+    req.params.id,
+    function (err, payload) {
+      console.log('it works in router');
+      if (err) {
+        res.status(500).json({ message: "Error-dude", error: err });
+      } else {
+        res.json({ message: "success", data: payload });
+      }
+    }
+  );
 });
 
 router.post("/create-product", function (req, res) {
